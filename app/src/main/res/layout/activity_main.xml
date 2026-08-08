@@ -1,19 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:padding="24dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="What ingredients do you have?"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:text="Select all the ingredients available in your kitchen."
+            android:textSize="16sp" />
+
+        <CheckBox
+            android:id="@+id/cbEgg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Egg"/>
+
+        <CheckBox
+            android:id="@+id/cbBread"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bread"/>
+
+        <CheckBox
+            android:id="@+id/cbButter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Butter"/>
+
+        <CheckBox
+            android:id="@+id/cbPasta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pasta"/>
+
+        <CheckBox
+            android:id="@+id/cbTomato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tomato"/>
+
+        <CheckBox
+            android:id="@+id/cbChicken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chicken"/>
+
+        <CheckBox
+            android:id="@+id/cbCheese"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cheese"/>
+
+        <CheckBox
+            android:id="@+id/cbRice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rice"/>
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Search Recipes"/>
+
+    </LinearLayout>
+
+</ScrollView>
