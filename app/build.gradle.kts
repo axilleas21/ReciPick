@@ -37,7 +37,12 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.material)
     implementation(libs.recyclerview)
-    implementation("androidx.recyclerview:recyclerview:1.4.0")
+
+    implementation(libs.room.runtime)
+    implementation(libs.room.common)
+    annotationProcessor(libs.room.compiler)
+    testImplementation(libs.room.testing)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
