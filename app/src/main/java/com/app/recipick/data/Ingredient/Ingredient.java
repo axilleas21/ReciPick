@@ -5,8 +5,7 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class Ingredient {
-    @PrimaryKey(autoGenerate = true)
-    public int id;
+    @PrimaryKey(autoGenerate = true) public int id;
     public String name;
     public boolean selected=false;
 

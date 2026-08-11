@@ -3,8 +3,7 @@ import androidx.room.Dao;
 import androidx.room.Query;
 import com.app.recipick.data.GeneralDao;
 import com.app.recipick.data.Ingredient.Ingredient;
-import com.app.recipick.data.Recipe;
-
+import com.app.recipick.data.Recipe.Recipe;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,6 @@ public interface Recipe_IngredientsDao extends GeneralDao<Recipe_Ingredients> {
             "JOIN Recipe_Ingredients ON Ingredient.id = Recipe_Ingredients.ingredientId " +
             "WHERE Recipe_Ingredients.recipeId = :id")
     ArrayList<Ingredient> getIngredients(int id);
-
 
     /**
      * Finds recipes that contain ALL of the currently selected ingredients.
