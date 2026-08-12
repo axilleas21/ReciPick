@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.app.recipick.R;
-import com.app.recipick.models.Recipe;
+import com.app.recipick.data.Recipe.Recipe;
 import java.util.ArrayList;
 
 public class TheAdapter extends RecyclerView.Adapter<TheAdapter.ViewHolder>{
@@ -35,7 +35,7 @@ public class TheAdapter extends RecyclerView.Adapter<TheAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder,int position){
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position){
         Recipe recipe=recipes.get(position);
         holder.txtName.setText(recipe.getName());
         holder.txtDescription.setText(recipe.getDescription());
@@ -45,7 +45,6 @@ public class TheAdapter extends RecyclerView.Adapter<TheAdapter.ViewHolder>{
     @Override
     public int getItemCount(){return recipes.size();}
 }
-
 
 
 

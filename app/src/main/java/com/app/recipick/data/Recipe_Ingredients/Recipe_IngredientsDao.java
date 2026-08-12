@@ -1,36 +1,41 @@
 package com.app.recipick.data.Recipe_Ingredients;
+import android.content.Context;
+
 import androidx.room.Dao;
+import androidx.room.Database;
 import androidx.room.Query;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+
 import com.app.recipick.data.GeneralDao;
 import com.app.recipick.data.Ingredient.Ingredient;
+import com.app.recipick.data.Ingredient.IngredientDao;
+import com.app.recipick.data.Ingredient.IngredientFts;
 import com.app.recipick.data.Recipe.Recipe;
+import com.app.recipick.data.Recipe.RecipeDao;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Dao
 public interface Recipe_IngredientsDao extends GeneralDao<Recipe_Ingredients> {
 
-    @Query( "SELECT Ingredient.* FROM Ingredient " +
+    @Query("SELECT Ingredient.name FROM Ingredient " +
             "JOIN Recipe_Ingredients ON Ingredient.id = Recipe_Ingredients.ingredientId " +
             "WHERE Recipe_Ingredients.recipeId = :id")
-    ArrayList<Ingredient> getIngredients(int id);
+    List<String> getIngredientNamesForRecipe(int id);
 
     /**
-     * Finds recipes that contain ALL of the currently selected ingredients.
-     * 
-     * How it works:
-     * 1. Count how many ingredients are currently selected.
-     * 2. Join Recipe with Recipe_Ingredients and Ingredient.
-     * 3. Filter for only selected ingredients.
-     * 4. Group by Recipe so we can count matches.
-     * 5. The HAVING clause ensures the count of matching ingredients in that recipe 
-     *    is equal to the total number of selected ingredients.
+     * Finds recipes where the user has ALL the required ingredients selected.
+     * (i.e., you can cook this recipe right now).
      */
     @Query("SELECT Recipe.* FROM Recipe " +
-           "JOIN Recipe_Ingredients ON Recipe.id = Recipe_Ingredients.recipeId " +
-           "JOIN Ingredient ON Ingredient.id = Recipe_Ingredients.ingredientId " +
-           "WHERE Ingredient.selected = 1 " +
-           "GROUP BY Recipe.id " +
-           "HAVING COUNT(Ingredient.id) = (SELECT COUNT(*) FROM Ingredient WHERE selected = 1)")
+            "WHERE NOT EXISTS ( " +
+            "    SELECT 1 " +
+            "    FROM Recipe_Ingredients ri " +
+            "    JOIN Ingredient i ON i.id = ri.ingredientId " +
+            "    WHERE ri.recipeId = Recipe.id " +
+            "    AND i.selected = 0 " +
+            ")")
     List<Recipe> getRecipesMatchingAllSelected();
 }

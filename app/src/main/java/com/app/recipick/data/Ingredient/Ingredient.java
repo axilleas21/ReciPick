@@ -13,6 +13,4 @@ public class Ingredient {
     public String getName(){return name;}
     @Ignore
     public boolean isSelected(){return selected;}
-    @Ignore
-    public void setSelected(boolean selected){this.selected=selected;}
 }

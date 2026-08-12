@@ -7,5 +7,8 @@ import java.util.List;
 @Dao
 public interface IngredientDao extends GeneralDao<Ingredient> {
     @Query("SELECT * FROM Ingredient JOIN ingredients_fts ON Ingredient.id = ingredients_fts.rowid WHERE ingredients_fts.name MATCH :query")
-    List<Ingredient> search(String query);
+ List<Ingredient> search(String query);
+
+    @Query("UPDATE Ingredient SET selected = :isSelected WHERE id = :id")
+    void updateSelection(int id, int isSelected);
 }

@@ -3,7 +3,9 @@ package com.app.recipick;
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import com.app.recipick.models.Recipe;
+import com.app.recipick.data.Recipe.Recipe;
+import com.app.recipick.data.Recipe_Ingredients.Recipe_IngredientsDao;
+
 public class RecipeDetailsActivity extends AppCompatActivity{
     private TextView txtRecipeName;private TextView txtDescription;
     private TextView txtIngredients;private TextView txtInstructions;
@@ -19,7 +21,7 @@ public class RecipeDetailsActivity extends AppCompatActivity{
             txtRecipeName.setText(recipe.getName());                 // me auta emfanizontai sto ui
             txtDescription.setText(recipe.getDescription());
             StringBuilder ingredientsText=new StringBuilder();       // ftoiaxnei th lista
-            for(String ingredient:recipe.getIngredients()){
+            for(String ingredient: Recipe_IngredientsDao.getIngredientNamesForRecipe(recipe.id)){
                 ingredientsText.append("- ").append(ingredient).append("\n");
             }
             txtIngredients.setText(ingredientsText.toString());
