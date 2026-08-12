@@ -5,7 +5,7 @@ import androidx.room.Index;
 import com.app.recipick.data.Ingredient.Ingredient;
 import com.app.recipick.data.Recipe.Recipe;
 
-@Entity(primaryKeys = {"recipeId","ingredientId"}, foreignKeys={@ForeignKey(entity = Recipe.class, parentColumns = "id", childColumns = "recipeId"), @ForeignKey(entity = Ingredient.class, parentColumns = "id", childColumns = "ingredientId")},indices = {@Index("recipeId"),@Index("ingredientId")})
+@Entity(tableName = "recipeIngredients", primaryKeys = {"recipeId","ingredientId"}, foreignKeys={@ForeignKey(entity = Recipe.class, parentColumns = "id", childColumns = "recipeId"), @ForeignKey(entity = Ingredient.class, parentColumns = "id", childColumns = "ingredientId")},indices = {@Index("recipeId"),@Index("ingredientId")})
 public class Recipe_Ingredients {
     public int recipeId, ingredientId;
 }
