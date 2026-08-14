@@ -1,13 +1,27 @@
 package com.app.recipick.data.Recipe;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import java.io.Serializable;
 
-@Entity
-public class Recipe {
+@Entity(tableName="Recipe")
+public class Recipe implements Serializable{
     @PrimaryKey public int id;
-    public String name, desc, instr;
+
+    @NonNull
+    @ColumnInfo(name="name")
+    public String name;
+
+    @NonNull
+    @ColumnInfo(name="desc")
+    public String desc;
+
+    @NonNull
+    @ColumnInfo(name="instr")
+    public String instr;
 
     @Ignore
     public String getName(){return name;}

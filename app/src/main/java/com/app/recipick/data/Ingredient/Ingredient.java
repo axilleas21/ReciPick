@@ -1,13 +1,15 @@
 package com.app.recipick.data.Ingredient;
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Ingredient {
+public class Ingredient{
     @PrimaryKey public int id;
-    public String name;
+    @NonNull public String name;
     public boolean selected=false;
+    public String imgsrc;
 
     @Ignore
     public String getName(){return name;}

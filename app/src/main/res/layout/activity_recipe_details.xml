@@ -50,7 +50,7 @@
                     android:layout_marginTop="8dp"
                     android:text="Recipe description"
                     android:textSize="16sp"
-                    android:textColor="#757575"/>
+                    android:textColor="#626262"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -79,7 +79,7 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
-                    android:background="#DDDDDD"/>
+                    android:background="#CECECE"/>
 
                 <TextView
                     android:layout_width="wrap_content"

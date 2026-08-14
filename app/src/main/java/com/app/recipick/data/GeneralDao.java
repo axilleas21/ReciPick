@@ -7,12 +7,12 @@ import androidx.room.Update;
 import java.util.List;
 
 @Dao
-public interface GeneralDao<T> {
+public interface GeneralDao<T>{
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict=OnConflictStrategy.REPLACE)
     void insert(T entity);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict=OnConflictStrategy.REPLACE)
     void insertList(List<T> entities);
 
     @Update

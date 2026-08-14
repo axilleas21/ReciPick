@@ -1,7 +1,7 @@
-pluginManagement {
-    repositories {
-        google {
-            content {
+pluginManagement{
+    repositories{
+        google{
+            content{
                 includeGroupByRegex("com\\.android.*")
                 includeGroupByRegex("com\\.google.*")
                 includeGroupByRegex("androidx.*")
@@ -11,16 +11,16 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-plugins {
+plugins{
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
-dependencyResolutionManagement {
+dependencyResolutionManagement{
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
+    repositories{
         google()
         mavenCentral()
     }
 }
 
-rootProject.name = "ReciPick"
+rootProject.name="ReciPick"
 include(":app")
